@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kursovaya.OnePost"
+             >
+
+    <Grid>
+            <ScrollView BackgroundColor="#303030">
+            <Grid x:Name="OnePostLayout" Padding="20,0,20,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label x:Name="PostName"
+                       TextColor="#626362"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start"
+                       FontSize="30"
+                       Grid.Row="0"
+                       />
+
+                <Label x:Name="PostContent"
+                       TextColor="#626362"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start"
+                       FontSize="20"
+                       Grid.Row="1" />
+
+                <Label x:Name="PostAuthor"
+                       TextColor="#0079FD"
+                       HorizontalOptions="End"
+                       FontSize="15"
+                       Grid.Row="2" 
+                       />
+
+                <Label x:Name="Comments"
+                       TextColor="#626362"
+                       HorizontalOptions="Start"
+                       VerticalOptions="Start"
+                       FontSize="22"
+                       FontAttributes ="Bold"
+                       Grid.Row="3" 
+                       />
+
+                <Entry x:Name="InputComment"
+                       PlaceholderColor="#626362"
+                       TextColor="#626362" 
+                       FontSize="17"
+                       Grid.Row="4"
+                       Margin="-2,-20,0,0"
+                       IsVisible="false"
+                    />
+                <Button
+                        x:Name="SendButton"
+                        TextTransform="None"
+                        Grid.Row="5"
+                        Margin="0,-5,0,0"
+                        CornerRadius="30"
+                        Font="12"
+                        HorizontalOptions="End"
+                        Opacity="0.2"
+                        IsEnabled="False"
+                        IsVisible ="False"
+                        Clicked="OnSendClicked"
+                        />
+
+                <Button x:Name="CancelButton"
+                        TextTransform="None"
+                        Clicked="OnCancelClicked" 
+                        Grid.Row="5"
+                        Font="12"
+                        Margin="190,-5,100,0"
+                        CornerRadius="30"
+                        BackgroundColor="#303030"
+                        TextColor="white"
+                        Opacity="0.5"
+                        IsVisible="false"
+                        />
+            </Grid>
+        </ScrollView>
+    </Grid>
+</ContentPage>

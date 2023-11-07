@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kursovaya.Profile"
+             NavigationPage.HasNavigationBar="True"
+             NavigationPage.HasBackButton="True">
+
+    <AbsoluteLayout BackgroundColor="#303030">
+        <Image
+            x:Name="Gender"
+            Aspect="AspectFill"
+            />
+        <Frame
+            x:Name="Box"
+            Padding="0"
+            CornerRadius="100"
+            BorderColor="White"
+            BackgroundColor="Transparent"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
+            <BoxView BackgroundColor="Transparent" />
+        </Frame>
+
+        <Label
+            x:Name="Name"
+            Text="Name: "
+            TextColor="White"
+            Margin="0,0,0,0"
+            VerticalOptions="CenterAndExpand"
+            />
+    </AbsoluteLayout>
+</ContentPage>

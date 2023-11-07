@@ -1,0 +1,12 @@
+﻿<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kursovaya.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Style x:Key="NavigationPageStyle" TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="#303030" />
+                <Setter Property="BarTextColor" Value="#303030" />
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

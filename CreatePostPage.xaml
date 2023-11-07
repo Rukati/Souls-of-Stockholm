@@ -1,0 +1,10 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="kursovaya.CreatePostPage"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout BackgroundColor="#303030">
+        <Entry Placeholder="Название поста" x:Name="Variable1Entry" />
+        <Entry Placeholder="Содержание поста" x:Name="Variable2Entry" />
+        <Button Text="Готово" Clicked="OnInputComplete" />
+    </StackLayout>
+</ContentPage>
