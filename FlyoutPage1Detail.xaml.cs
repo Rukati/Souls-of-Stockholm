@@ -1,4 +1,4 @@
-﻿using ApiRequest;
+using ApiRequest;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -35,7 +35,7 @@ namespace kursovaya
             {
                 Text = "🜲🜲🜲🜲🜲🜲",
                 TextColor = Xamarin.Forms.Color.Wheat,
-                FontSize = 20,
+                FontSize = 25,
                 Opacity = 0.5,
                 TextDecorations = TextDecorations.Strikethrough,
                 HorizontalOptions = LayoutOptions.Center
@@ -61,7 +61,7 @@ namespace kursovaya
                 TextColor = Xamarin.Forms.Color.FromHex("#1C1C1C"),
                 FontSize = 120,
                 HorizontalOptions = LayoutOptions.Center,
-                Margin = new Thickness(0,-5,0,0),
+                Margin = new Thickness(0,-10,0,0),
             };
 
             layout.RowDefinitions.Add(new RowDefinition { Height = 25});
@@ -165,79 +165,6 @@ namespace kursovaya
 
                 row++;
             }
-            /*          
-                        //-------------------------------------------------------------
-
-                        Label back = new Label
-                        {
-                            Text = "Назад",
-                            TextColor = Xamarin.Forms.Color.FromHex("#626362"),
-                            HorizontalOptions = LayoutOptions.Start,
-                            TranslationX = ClientInfo.screenWidth / ClientInfo.density / 6,
-                            TranslationY = ClientInfo.screenHeight / ClientInfo.density - 65,
-                            FontSize = 20,
-                        };
-
-                        back.GestureRecognizers.Add(new TapGestureRecognizer()
-                        {
-                            Command = new Command(() =>
-                            {
-                                BackPage();
-                            })
-                        });
-
-                        //-------------------------------------------------------------
-
-                        Label next = new Label
-                        {
-                            Text = "Далее",
-                            TextColor = Xamarin.Forms.Color.FromHex("#626362"),
-                            HorizontalOptions = LayoutOptions.Start,
-                            TranslationX = ClientInfo.screenWidth / ClientInfo.density / 3 * 2,
-                            TranslationY = ClientInfo.screenHeight / ClientInfo.density - 65,
-                            FontSize = 20,
-                        };
-
-                        next.GestureRecognizers.Add(new TapGestureRecognizer()
-                        {
-                            Command = new Command(() =>
-                            {
-                                NextPage();
-                            })
-                        });
-
-                        //-------------------------------------------------------------
-
-                        Label nowPage = new Label
-                        {
-                            Text = page.ToString(),
-                            TextColor = Xamarin.Forms.Color.FromHex("#626362"),
-                            HorizontalOptions = LayoutOptions.Start,
-                            TranslationX = ClientInfo.screenWidth / ClientInfo.density / 2 - 10,
-                            TranslationY = ClientInfo.screenHeight / ClientInfo.density - 65,
-                            FontSize = 20,
-                        };
-
-                        //-------------------------------------------------------------
-
-                        int lastPage = (int)Math.Ceiling((double)answerList.Count / 5);
-                        if (page == lastPage)
-                        {
-                            layout.Children.Add(nowPage);
-                            layout.Children.Add(back);
-                        }
-                        else if (page != 1)
-                        {
-                            layout.Children.Add(back);
-                            layout.Children.Add(nowPage);
-                            layout.Children.Add(next);
-                        }
-                        else
-                        {
-                            layout.Children.Add(next);
-                            layout.Children.Add(nowPage);
-                        }
-            */
         }
 
     }
