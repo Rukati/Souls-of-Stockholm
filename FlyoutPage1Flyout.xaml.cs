@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -24,6 +24,11 @@ namespace kursovaya
 
             BindingContext = new FlyoutPage1FlyoutViewModel();
             listView = MenuItemsListView;
+            if (ClientInfo.Profile.id != -1)
+                AppName.Text = ClientInfo.Profile.username;
+            else
+                AppName.Text = "Unknown";
+            AppName.Text.ToUpper();
         }
         private class FlyoutPage1FlyoutViewModel : INotifyPropertyChanged
         {
