@@ -1,4 +1,4 @@
-﻿using Rg.Plugins.Popup.Services;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Threading;
 using Xamarin.Forms;
@@ -16,7 +16,7 @@ namespace kursovaya
             Box.WidthRequest = ClientInfo.screenWidth / ClientInfo.density / 2;
             Box.HeightRequest = ClientInfo.screenHeight / ClientInfo.density / 4;
 
-            Box.Margin = new Thickness(ClientInfo.screenWidth / ClientInfo.density / 4, 72, 0, 0);
+            Box.Margin = new Thickness(ClientInfo.screenWidth / ClientInfo.density / 4 - 5, 60, 0, 0);
 
             switch (client.gender)
             {
