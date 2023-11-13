@@ -13,17 +13,16 @@ namespace kursovaya
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageWithAllPosts : ContentPage
     {
-        private List<Posts> AnswerRequestPosts = new List<Posts>();
-        Grid layout;
+        static public List<Posts> AnswerRequestPosts;
+        readonly Grid layout;
         public PageWithAllPosts()
         {
             InitializeComponent();
             layout = GridText;
         }
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
-            AnswerRequestPosts = await GetAllPosts();
-            
+   
             if (layout.Children.Count > 0)
             {
                 layout.RowDefinitions.Clear();
@@ -31,18 +30,7 @@ namespace kursovaya
                 layout.Children.Clear();
             }
 
-            Label titleLabel = new Label
-            {
-                Text = "🜲🜲🜲🜲🜲🜲",
-                TextColor = Xamarin.Forms.Color.Wheat,
-                FontSize = 25,
-                Opacity = 0.5,
-                TextDecorations = TextDecorations.Strikethrough,
-                HorizontalOptions = LayoutOptions.Center
-            };
-            NavigationPage.SetTitleView(this, titleLabel);
-
-            ShowPosts(AnswerRequestPosts);
+            ShowPosts();
 
         }
         private void ViewPost(object sender, EventArgs e)
@@ -52,13 +40,15 @@ namespace kursovaya
 
             Navigation.PushAsync(new OnePost(classId));
         }
-        private void ShowPosts(List<Posts> answerList)
+        private async void ShowPosts()
         {
+            AnswerRequestPosts = await GetAllPosts();
+
             layout.RowDefinitions.Add(new RowDefinition { Height = 125 });
             Label SOS = new Label
             {
                 Text = "SOS",
-                TextColor = Xamarin.Forms.Color.FromHex("#1C1C1C"),
+                TextColor = Xamarin.Forms.Color.FromHex("#8E8E8E"),
                 FontSize = 120,
                 HorizontalOptions = LayoutOptions.Center,
                 Margin = new Thickness(0,-10,0,0),
@@ -68,7 +58,7 @@ namespace kursovaya
             Label Welcome = new Label
             {
                 Text = "Добро пожаловать на Souls of Stockholm",
-                TextColor = Xamarin.Forms.Color.FromHex("#1C1C1C"),
+                TextColor = Xamarin.Forms.Color.FromHex("#8E8E8E"),
                 FontSize = 15,
                 HorizontalOptions = LayoutOptions.Center,
                 FontAttributes = FontAttributes.Bold
@@ -78,7 +68,7 @@ namespace kursovaya
             Label Hello = new Label
             {
                 Text = "Здесь не салам, здесь здравствуйте!",
-                TextColor = Xamarin.Forms.Color.FromHex("#1C1C1C"),
+                TextColor = Xamarin.Forms.Color.FromHex("#8E8E8E"),
                 FontSize = 10,
                 HorizontalOptions = LayoutOptions.Center,
                 FontAttributes = FontAttributes.Bold,
@@ -100,7 +90,7 @@ namespace kursovaya
             double newYPostName = 5;
             double newYPostContent = 35;
 
-            foreach (var answer in answerList)
+            foreach (var answer in AnswerRequestPosts)
             {
                 string NamePost = answer.name;
                 if (NamePost.Length > maxTextLengthName)
@@ -157,7 +147,7 @@ namespace kursovaya
                 layout.ColumnDefinitions.Add(new ColumnDefinition { Width = ClientInfo.screenWidth / 6 / ClientInfo.density }); // Правая пустая колонка
 
 
-                layout.RowDefinitions.Add(new RowDefinition { Height = ClientInfo.screenHeight / answerList.Count / ClientInfo.density + 10});
+                layout.RowDefinitions.Add(new RowDefinition { Height = ClientInfo.screenHeight / ClientInfo.density / 14 });
 
                 layout.Children.Add(boxView, 1, row);
                 layout.Children.Add(PostAuthor, 1, row);
