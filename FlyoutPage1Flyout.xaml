@@ -10,7 +10,7 @@
               SeparatorVisibility="Default"
               HasUnevenRows="true"
               ItemsSource="{Binding MenuItems}"
-               >
+              >
             <ListView.Header>
                 <Grid BackgroundColor="Azure">
                     <Grid.ColumnDefinitions>
@@ -32,21 +32,35 @@
                         />
                 </Grid>
             </ListView.Header>
-            <ListView.ItemTemplate>
-        <DataTemplate>
-          <ViewCell>
-            <StackLayout Padding="15,10" >
-              <Label VerticalOptions="FillAndExpand" 
-                    VerticalTextAlignment="Center" 
-                    Text="{Binding Title}" 
-                    FontSize="24"/>
-            </StackLayout>
-          </ViewCell>
-        </DataTemplate>
-      </ListView.ItemTemplate>
+        <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="15,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <Image Source="{Binding Icon}" 
+                                   HeightRequest="30"
+                                   WidthRequest="30" 
+                                   HorizontalOptions="Start"
+                                   Grid.Column="0"
+                                   />
+                            <Label VerticalOptions="FillAndExpand" 
+                                    VerticalTextAlignment="Center" 
+                                    Text="{Binding Title}" 
+                                    FontSize="24"
+                                    TextColor="#ABABAB"
+                                    Grid.Column="1" 
+                                   />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
     </ListView>
   </StackLayout>
 </ContentPage>
-<!-- 
-
-    -->
+<!---->
