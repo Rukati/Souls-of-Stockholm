@@ -28,7 +28,7 @@ namespace kursovaya
                 AppName.Text = ClientInfo.Profile.username;
             else
                 AppName.Text = "Unknown";
-            AppName.Text.ToUpper();
+            AppName.Text = AppName.Text.ToUpper();
         }
         private class FlyoutPage1FlyoutViewModel : INotifyPropertyChanged
         {
@@ -39,8 +39,9 @@ namespace kursovaya
                 
                 MenuItems = new ObservableCollection<FlyoutPage1FlyoutMenuItem>(new[]
                 {
-                    new FlyoutPage1FlyoutMenuItem { Id = 0, Title = ClientInfo.Profile.id == -1? "Войти" : "Профиль" },
-                    new FlyoutPage1FlyoutMenuItem { Id = 1, Title = "Создать пост" },
+                    new FlyoutPage1FlyoutMenuItem { Id = 0, Title = "Профиль", Icon = "profile_icon.png" },
+                    new FlyoutPage1FlyoutMenuItem { Id = 1, Title = "Создать пост", Icon = "pen_icon.png" },
+                    new FlyoutPage1FlyoutMenuItem { Id = 2, Title = ClientInfo.Profile.id == -1 ? "Войти" : "Выйти", Icon = "door_icon.png" },
                 });
                 
             }
