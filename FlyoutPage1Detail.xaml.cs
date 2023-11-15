@@ -1,5 +1,6 @@
 using ApiRequest;
 using Newtonsoft.Json;
+using Rg.Plugins.Popup.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,6 +16,7 @@ namespace kursovaya
     {
         static public List<Posts> AnswerRequestPosts;
         readonly Grid layout;
+        LoadingPopup popup = new LoadingPopup();
         public PageWithAllPosts()
         {
             InitializeComponent();
@@ -33,15 +35,19 @@ namespace kursovaya
             ShowPosts();
 
         }
-        private void ViewPost(object sender, EventArgs e)
+        private async void ViewPost(object sender, EventArgs e)
         {
             BoxView clickedButton = (BoxView)sender;
             int classId = int.Parse(clickedButton.ClassId);
 
-            Navigation.PushAsync(new OnePost(classId));
+            await PopupNavigation.Instance.PushAsync(popup);
+            await Navigation.PushAsync(new OnePost(classId), true);
+            await PopupNavigation.Instance.PopAsync();
         }
         private async void ShowPosts()
         {
+            await PopupNavigation.Instance.PushAsync(popup);
+
             AnswerRequestPosts = await GetAllPosts();
 
             layout.RowDefinitions.Add(new RowDefinition { Height = 125 });
@@ -155,6 +161,8 @@ namespace kursovaya
 
                 row++;
             }
+
+            await PopupNavigation.Instance.PopAsync();
         }
 
     }
